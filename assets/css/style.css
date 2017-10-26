@@ -1,12 +1,18 @@
+body {
+  background-color: navy;
+}
 .jumbotron {
-  background-color: aliceblue;
-  color: grey;
+  background-color:   #d7faeb;
+  color: black;
 }
 
 .panel-primary>.panel-heading {
-  background-color: grey;
+  background-color: #d7e6fa;
+  color:black;
 }
 
 #submit-train-btn {
-  background-color: grey;
+  background-color: #d7e6fa;
+  color: black;
 }
+
