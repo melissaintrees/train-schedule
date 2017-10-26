@@ -1,0 +1,12 @@
+.jumbotron {
+  background-color: aliceblue;
+  color: grey;
+}
+
+.panel-primary>.panel-heading {
+  background-color: grey;
+}
+
+#submit-train-btn {
+  background-color: grey;
+}
