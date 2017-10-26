@@ -70,8 +70,44 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
   var trainFirstFormat = moment(trainFirst, "hh:mm").subtract(1, "years");
   console.log(trainFirstFormat);
 
-  // Add each train's data into the table
-  $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" + trainFreq + "</td></tr>");
+    // Current Time
+    var currentTime = moment();
+    console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+     //   Difference between the times
+    var diffTime = moment().diff(moment(trainFirstFormat), "minutes");
+    console.log("DIFFERENCE IN TIME: " + diffTime);
+
+    // Time apart (remainder)
+    var tRemainder = diffTime % trainFreq;
+    console.log(tRemainder);
+
+    // Minute Until Train
+    var tMinutesTillTrain = trainFreq - tRemainder;
+    console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+    // Next Train
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes");
+    console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+    var nextArrival = moment(nextTrain).format("hh:mm");
+  // // my logic which i think would work but the syntax is off:
+  // // var trainMod = (currentTime - trainFirstFormat) % trainFreq
+  // // var minutesAway = trainFreq - trainMod
+  // // var nextArrival = minutesAway + currentTime
+
+  // // break down the formula using moment:
+  // var timeDiff = moment().diff(moment(trainFirstFormat), "minutes");
+  // console.log(timeDiff);
+
+  // // console.log(currentTime)
+  // // console.log(trainMod);
+  // // console.log(minutesAway);
+  // // console.log(nextArrival);
+
+
+  // // Add each train's data into the table
+  $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" + trainFreq + "</td><td>" + nextArrival + "</td><td>" + tMinutesTillTrain + "</td></tr>");
+
 
 
 });
