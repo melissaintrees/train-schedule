@@ -68,9 +68,10 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 
   // use moment to format the military time
   var trainFirstFormat = moment(trainFirst, "hh:mm").subtract(1, "years");
-
-
-
   console.log(trainFirstFormat);
+
+  // Add each train's data into the table
+  $("#train-table > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" + trainFreq + "</td></tr>");
+
 
 });
